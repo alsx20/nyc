@@ -1,0 +1,116 @@
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('nyc_skyline.avif') center bottom no-repeat;
+  background-size: cover;
+  padding: 2rem 0 1rem 0;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  margin: 0;
+  color: #ffcd38;
+  text-shadow: 2px 2px 8px #000;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0 2rem 0;
+}
+
+nav button {
+  background: #ffcd38;
+  color: #232526;
+  border: none;
+  border-radius: 20px;
+  padding: 0.7rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+nav button.active, nav button:hover {
+  background: #232526;
+  color: #ffcd38;
+}
+
+main {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(30,30,30,0.95);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+  padding: 2rem 2.5rem 2.5rem 2.5rem;
+  min-height: 350px;
+}
+
+.itinerary-day {
+  display: none;
+}
+
+.itinerary-day.active {
+  display: block;
+  animation: fadeIn 0.7s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.event {
+  display: flex;
+  align-items: flex-start;
+  background: #fff2c7;
+  color: #232526;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+  padding: 1.1rem 1.2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  font-size: 1.1rem;
+}
+
+.event-time {
+  min-width: 70px;
+  font-weight: bold;
+  color: #d35400;
+  font-size: 1.1rem;
+  margin-right: 1.2rem;
+  text-align: right;
+  padding-top: 0.2rem;
+}
+
+.event-details {
+  flex: 1;
+}
+
+.event h3 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.2rem;
+  color: #d35400;
+}
+
+footer {
+  text-align: center;
+  color: #aaa;
+  margin: 2rem 0 1rem 0;
+  font-size: 1rem;
+}
+
+.nyc-skyline {
+  display: none;
+}
