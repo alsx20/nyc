@@ -8,8 +8,12 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
 </head>
 <body>
-	<header>
+	<header style="position: relative;">
 		<h1>New York City Itinerary</h1>
+        <div id="admin-controls">
+            <button onclick="toggleEditMode()" id="edit-btn">Edit Mode</button>
+            <button onclick="saveData()" id="save-btn" style="display:none; background-color: #2ecc71;">Save Changes</button>
+        </div>
 		<!-- NYC skyline image removed; background will be set in CSS -->
 		<nav>
 			<button class="active" onclick="showDay(1)">March 20</button>
@@ -21,200 +25,23 @@
 	<main>
 		<section id="day-1" class="itinerary-day active">
 			<h2>Day 1: March 20 (Friday)</h2>
-			<div class="event">
-				<span class="event-time">10:00 AM - 11:00 AM </span>
-				<div class="event-details">
-					<h3>Commute into the City</h3>
-					<p>Drop off stuff at Stephanie's place, and get something nearby to eat</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">11:00 AM - 12:00 PM </span>
-				<div class="event-details">
-					<h3>Salt Hanks</h3>
-					<p>Opens at 11:30 AM</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">12:00 PM - 1:00 PM</span>
-				<div class="event-details">
-					<h3>Highline</h3>
-					<p>Walk highline and take pictures. 1 hour to complete walk.</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">1:00 PM - 4:00 PM</span>
-				<div class="event-details">
-					<h3>Explore and have lunch at Chelsea Market</h3>
-					<p>They have los tacos # 1 plus more food options.</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">4:00 PM - 5:00 PM</span>
-				<div class="event-details">
-					<h3>Little island and chelsea piers</h3>
-					<p>Take pictures and enjoy the view.</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">5:00 PM</span>
-				<div class="event-details">
-					<h3>Kazunori - Handroll omakase</h3>
-					<p>Best time to go is off peak window 3pm-5pm to avoid wait times.</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">6:00 PM - 7:00 PM</span>
-				<div class="event-details">
-					<h3>Hotel checkin</h3>
-					<p>Get stuff from stephs and check in to hotel</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">7:00 PM - 8:30 PM</span>
-				<div class="event-details">
-					<h3>Late dinner at Koreatown</h3>
-                    <p>Nan xiang xiao long bao dumplings</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">8:30 PM - 11:00 PM</span>
-				<div class="event-details">
-					<h3>Matcha ice cream spot</h3>
-					<p>Get the soft serve!</p>
-				</div>
-			</div>
+            <div class="events-container"></div>
+            <button class="add-event-btn" onclick="addEvent(1)" style="display:none;">+ Add Event</button>
 		</section>
 		<section id="day-2" class="itinerary-day">
 			<h2>Day 2: March 21 (Saturday)</h2>
-			<div class="event">
-				<span class="event-time">8:00 AM - 9:00 AM</span>
-				<div class="event-details">
-					<h3>Liberty Bagels</h3>
-					<p>Get bagels to eat at Central park. Known for their rainbow bagels</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">9:00 AM - 12:00 PM</span>
-				<div class="event-details">
-					<h3>Central Park</h3>
-					<p>Eat breakfast and explore the park.</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">12:00 PM - 5:00 PM</span>
-				<div class="event-details">
-					<h3>Flushing Queens, Chinatown (Para Picar - Bring Cash)</h3>
-					<div>
-						<p>- Gao xiao pa: Chicken roujiamo chinese sandwich</p>
-						<p>- White bear: Chili oil wontons</p>
-                        <p>- Fu yuan: Steamed rice rolls</p>
-                        <p>- Shang hai yu garden: Peking duck buns</p>
-                        <p>- 42 main street: $3 peanut noodles</p>
-                        <p>- New World Mall Food Stalls (pork dumplings)</p>
-						<p>- Soybean chan flower shop: Tofu fa pudding</p>
-                        <p>- Brown sugar soybean mochi cart prince St. 38/39 St.</p>
-                        <p>- Good coconut: Creamy mango coconut pudding</p>
-					</div>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">5:00 PM - 6:00 PM</span>
-				<div class="event-details">
-					<h3>Flushing Meadows Corona Park</h3>
-					<p>Watch sunset</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">6:00 PM - 7:00 PM</span>
-				<div class="event-details">
-					<h3>Souvlaki midtown east</h3>
-					<p>Greek burger</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">8:00 PM - 11:00 PM</span>
-				<div class="event-details">
-					<h3>Wicked</h3>
-					<p>Broadway show</p>
-				</div>
-			</div>
+            <div class="events-container"></div>
+            <button class="add-event-btn" onclick="addEvent(2)" style="display:none;">+ Add Event</button>
 		</section>
 		<section id="day-3" class="itinerary-day">
 			<h2>Day 3: March 22 (Sunday)</h2>
-			<div class="event">
-				<span class="event-time">9:00 AM - 12:00 PM</span>
-				<div class="event-details">
-					<h3>Brooklyn Bridge</h3>
-					<p>Walk across the iconic Brooklyn Bridge.</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">12:00 PM - 5:00 PM</span>
-				<div class="event-details">
-					<h3>Manhattan Chinatown</h3>
-					<p>Hay hay!</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">5:00 PM - 7:00 PM</span>
-				<div class="event-details">
-					<h3>Little Italy</h3>
-					<p>Near chinatown</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">7:00 PM - 8:00 PM</span>
-				<div class="event-details">
-					<h3>Leindustry Pizza</h3>
-					<p>Maybe not</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">8:00 PM - 10:00 PM</span>
-				<div class="event-details">
-					<h3>Union square</h3>
-					<p>Get a dessert.</p>
-				</div>
-			</div>
+            <div class="events-container"></div>
+            <button class="add-event-btn" onclick="addEvent(3)" style="display:none;">+ Add Event</button>
 		</section>
 		<section id="day-4" class="itinerary-day">
 			<h2>Day 4: March 23 (Monday)</h2>
-			<div class="event">
-				<span class="event-time">9:00 AM - 11:00 AM</span>
-				<div class="event-details">
-					<h3>Bryant Park</h3>
-					<p>Get breakfast and eat at park.</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">11:00 AM - 12:00 PM</span>
-				<div class="event-details">
-					<h3>5th avenue</h3>
-					<p>Uniqlo and walk around.</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">12:00 PM - 3:00 PM</span>
-				<div class="event-details">
-					<h3>Times square</h3>
-					<p>Find nearby food spot</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">3:00 PM - 5:00 PM</span>
-				<div class="event-details">
-					<h3>Commute home</h3>
-					<p>Pack</p>
-				</div>
-			</div>
-			<div class="event">
-				<span class="event-time">5:30 PM - 8:00 PM</span>
-				<div class="event-details">
-					<h3>Head to airport</h3>
-					<p>Travel to the airport for departure.</p>
-				</div>
-			</div>
+            <div class="events-container"></div>
+            <button class="add-event-btn" onclick="addEvent(4)" style="display:none;">+ Add Event</button>
 		</section>
 		<!-- Day 5 removed: Itinerary is now March 20-23 -->
 	</main>
@@ -222,6 +49,89 @@
 		<p>NYC Vibes &copy; 2026 | Designed for your adventure</p>
 	</footer>
 	<script>
+        // PASTE YOUR GOOGLE WEB APP URL HERE
+        const API_URL = 'https://script.google.com/macros/s/AKfycbyCaC44aRrmEow0sS_nmbBp6SWxf5KFzzlHGcgo7pQxs7h8zFQfBWxkjsJg7ErWhOOD/exec';
+
+        // Initial data serves as a fallback and the starting point
+        let itineraryData = {
+            1: [
+                { startTime: "10:00", endTime: "11:00", title: "Commute into the City", desc: "Drop off stuff at Stephanie's place, and get something nearby to eat" },
+                { startTime: "11:00", endTime: "12:00", title: "Salt Hanks", desc: "Opens at 11:30 AM" },
+                { startTime: "12:00", endTime: "13:00", title: "Highline", desc: "Walk highline and take pictures. 1 hour to complete walk." },
+                { startTime: "13:00", endTime: "16:00", title: "Explore and have lunch at Chelsea Market", desc: "They have los tacos # 1 plus more food options." },
+                { startTime: "16:00", endTime: "17:00", title: "Little island and chelsea piers", desc: "Take pictures and enjoy the view." },
+                { startTime: "17:00", endTime: "", title: "Kazunori - Handroll omakase", desc: "Best time to go is off peak window 3pm-5pm to avoid wait times." },
+                { startTime: "18:00", endTime: "19:00", title: "Hotel checkin", desc: "Get stuff from stephs and check in to hotel" },
+                { startTime: "19:00", endTime: "20:30", title: "Late dinner at Koreatown", desc: "Nan xiang xiao long bao dumplings" },
+                { startTime: "20:30", endTime: "23:00", title: "Matcha ice cream spot", desc: "Get the soft serve!" }
+            ],
+            2: [
+                { startTime: "08:00", endTime: "09:00", title: "Liberty Bagels", desc: "Get bagels to eat at Central park. Known for their rainbow bagels" },
+                { startTime: "09:00", endTime: "12:00", title: "Central Park", desc: "Eat breakfast and explore the park." },
+                { startTime: "12:00", endTime: "17:00", title: "Flushing Queens, Chinatown (Para Picar - Bring Cash)", desc: "- Gao xiao pa: Chicken roujiamo chinese sandwich<br>- White bear: Chili oil wontons<br>- Fu yuan: Steamed rice rolls<br>- Shang hai yu garden: Peking duck buns<br>- 42 main street: $3 peanut noodles<br>- New World Mall Food Stalls (pork dumplings)<br>- Soybean chan flower shop: Tofu fa pudding<br>- Brown sugar soybean mochi cart prince St. 38/39 St.<br>- Good coconut: Creamy mango coconut pudding" },
+                { startTime: "17:00", endTime: "18:00", title: "Flushing Meadows Corona Park", desc: "Watch sunset" },
+                { startTime: "18:00", endTime: "19:00", title: "Souvlaki midtown east", desc: "Greek burger" },
+                { startTime: "20:00", endTime: "23:00", title: "Wicked", desc: "Broadway show" }
+            ],
+            3: [
+                { startTime: "09:00", endTime: "12:00", title: "Brooklyn Bridge", desc: "Walk across the iconic Brooklyn Bridge." },
+                { startTime: "12:00", endTime: "17:00", title: "Manhattan Chinatown", desc: "Hay hay!" },
+                { startTime: "17:00", endTime: "19:00", title: "Little Italy", desc: "Near chinatown" },
+                { startTime: "19:00", endTime: "20:00", title: "Leindustry Pizza", desc: "Maybe not" },
+                { startTime: "20:00", endTime: "22:00", title: "Union square", desc: "Get a dessert." }
+            ],
+            4: [
+                { startTime: "09:00", endTime: "11:00", title: "Bryant Park", desc: "Get breakfast and eat at park." },
+                { startTime: "11:00", endTime: "12:00", title: "5th avenue", desc: "Uniqlo and walk around." },
+                { startTime: "12:00", endTime: "15:00", title: "Times square", desc: "Find nearby food spot" },
+                { startTime: "15:00", endTime: "17:00", title: "Commute home", desc: "Pack" },
+                { startTime: "17:30", endTime: "20:00", title: "Head to airport", desc: "Travel to the airport for departure." }
+            ]
+        };
+
+        let isEditMode = false;
+
+        // Fetch data on load
+        window.onload = async () => {
+            try {
+                if (!API_URL.includes("YOUR_GOOGLE")) {
+                    const res = await fetch(API_URL);
+                    const cloudData = await res.json();
+                    // If cloud returned valid data with keys, use it
+                    if (cloudData && Object.keys(cloudData).length > 0) {
+                        itineraryData = cloudData;
+						console.log('cloudData', cloudData);
+                    }
+                }
+            } catch (err) {
+                console.log("Using local data fallback", err);
+            }
+            renderAll();
+        };
+
+        function formatTime(timeStr) {
+            if (!timeStr) return '';
+            let [h, m] = timeStr.split(':');
+            const ampm = h >= 12 ? 'PM' : 'AM';
+            h = h % 12 || 12;
+            return `${h}:${m} ${ampm}`;
+        }
+
+        function getTimeOptions(selectedVal) {
+            let options = '<option value="">--</option>';
+            for (let h = 0; h < 24; h++) {
+                for (let m = 0; m < 60; m += 30) {
+                    const hour = h.toString().padStart(2, '0');
+                    const minute = m.toString().padStart(2, '0');
+                    const val = `${hour}:${minute}`;
+                    const dispH = h % 12 || 12;
+                    const ampm = h < 12 ? 'AM' : 'PM';
+                    options += `<option value="${val}" ${val === selectedVal ? 'selected' : ''}>${dispH}:${minute} ${ampm}</option>`;
+                }
+            }
+            return options;
+        }
+
 		function showDay(day) {
 			const days = document.querySelectorAll('.itinerary-day');
 			days.forEach((section, idx) => {
@@ -232,6 +142,148 @@
 				btn.classList.toggle('active', idx === day - 1);
 			});
 		}
+
+        function renderAll() {
+            for (let day = 1; day <= 4; day++) {
+                renderDay(day);
+            }
+        }
+
+        function renderDay(day) {
+            const container = document.querySelector(`#day-${day} .events-container`);
+            container.innerHTML = '';
+            const events = itineraryData[day] || [];
+            
+            events.forEach((evt, index) => {
+                const div = document.createElement('div');
+                div.className = 'event';
+                
+                let timeHtml;
+                if (isEditMode) {
+                    timeHtml = `<div class="time-inputs">
+                        <select onchange="updateData(${day}, ${index}, 'startTime', this)">
+                            ${getTimeOptions(evt.startTime)}
+                        </select>
+                        <span style="text-align:center">to</span>
+                        <select onchange="updateData(${day}, ${index}, 'endTime', this)">
+                            ${getTimeOptions(evt.endTime)}
+                        </select>
+                    </div>`;
+                } else {
+                    const start = formatTime(evt.startTime);
+                    const end = formatTime(evt.endTime);
+                    const displayTime = start ? `${start}${end ? ' - ' + end : ''}` : (evt.time || ''); // fallback to old 'time' string if exists
+                    timeHtml = `<div class="event-time">${displayTime}</div>`;
+                }
+
+                div.innerHTML = `
+                    ${timeHtml}
+                    <div class="event-details">
+                        <h3 contenteditable="${isEditMode}" onblur="updateData(${day}, ${index}, 'title', this)">${evt.title}</h3>
+                        <p contenteditable="${isEditMode}" onblur="updateData(${day}, ${index}, 'desc', this)">${evt.desc}</p>
+                        ${isEditMode ? `<button onclick="deleteEvent(${day}, ${index})" style="background:red;color:white;border:none;cursor:pointer;font-size:0.8rem;">Delete</button>` : ''}
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function toggleEditMode() {
+            isEditMode = !isEditMode;
+            document.getElementById('edit-btn').innerText = isEditMode ? "Cancel Editing" : "Edit Mode";
+            document.getElementById('save-btn').style.display = isEditMode ? 'inline-block' : 'none';
+            
+            // Show/Hide Add buttons
+            document.querySelectorAll('.add-event-btn').forEach(btn => {
+                btn.style.display = isEditMode ? 'block' : 'none';
+            });
+            
+            renderAll();
+        }
+
+        function updateData(day, index, field, element) {
+            if (!isEditMode) return;
+            const val = (field === 'startTime' || field === 'endTime') ? element.value : element.innerText;
+            itineraryData[day][index][field] = val;
+        }
+
+        function addEvent(day) {
+            if (!itineraryData[day]) itineraryData[day] = [];
+            itineraryData[day].push({ startTime: "12:00", endTime: "13:00", title: "New Event", desc: "Description" });
+            renderDay(day);
+        }
+
+        function deleteEvent(day, index) {
+            itineraryData[day].splice(index, 1);
+            renderDay(day);
+        }
+
+        async function saveData() {
+            const btn = document.getElementById('save-btn');
+            btn.innerText = "Saving...";
+
+            // Sort each day's events by start time before saving
+            for (const dayKey in itineraryData) {
+                if (Object.hasOwnProperty.call(itineraryData, dayKey)) {
+                    itineraryData[dayKey].sort((a, b) => (a.startTime || "").localeCompare(b.startTime || ""));
+                }
+            }
+            // Re-render the UI to reflect the new sorted order
+            renderAll();
+
+            try {
+                if (API_URL.includes("YOUR_GOOGLE")) {
+                    alert("Please set up the Google Apps Script and paste the URL in the code.");
+                    return;
+                }
+
+                await fetch(API_URL, {
+                    method: "POST",
+                    body: JSON.stringify(itineraryData)
+                });
+                alert("Itinerary saved to cloud!");
+                toggleEditMode(); // Exit edit mode
+            } catch (e) {
+                alert("Error saving: " + e);
+            } finally {
+                btn.innerText = "Save Changes";
+            }
+        }
 	</script>
+    <style>
+        /* Minimal styles for edit mode */
+        [contenteditable="true"] {
+            border: 1px dashed #ccc;
+            padding: 2px;
+            background: rgba(255,255,255,0.1);
+        }
+        #admin-controls {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        #admin-controls button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .add-event-btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background: #eee;
+            border: none;
+            cursor: pointer;
+            color: #333;
+        }
+        .time-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+		.event-time {
+			width: 180px;
+		}
+		
+    </style>
 </body>
 </html>
