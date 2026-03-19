@@ -177,10 +177,12 @@
                 }
 
                 div.innerHTML = `
-                    ${timeHtml}
                     <div class="event-details">
-                        <h3 contenteditable="${isEditMode}" onblur="updateData(${day}, ${index}, 'title', this)">${evt.title}</h3>
-                        <p contenteditable="${isEditMode}" onblur="updateData(${day}, ${index}, 'desc', this)">${evt.desc}</p>
+                        <div class="event-header">
+                            ${timeHtml}
+                            <h3 class="event-title" contenteditable="${isEditMode}" onblur="updateData(${day}, ${index}, 'title', this)">${evt.title}</h3>
+                        </div>
+                        <div class="event-desc" contenteditable="${isEditMode}" onblur="updateData(${day}, ${index}, 'desc', this)">${evt.desc}</div>
                         ${isEditMode ? `<button onclick="deleteEvent(${day}, ${index})" style="background:red;color:white;border:none;cursor:pointer;font-size:0.8rem;">Delete</button>` : ''}
                     </div>
                 `;
@@ -203,7 +205,7 @@
 
         function updateData(day, index, field, element) {
             if (!isEditMode) return;
-            const val = (field === 'startTime' || field === 'endTime') ? element.value : element.innerText;
+            const val = (field === 'startTime' || field === 'endTime') ? element.value : element.innerHTML;
             itineraryData[day][index][field] = val;
         }
 
@@ -280,10 +282,30 @@
             flex-direction: column;
             gap: 2px;
         }
-		.event-time {
-			width: 180px;
-		}
-		
+        .event-desc {
+            margin: 1em 0;
+        }
+        .event {
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .event-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .event-time, .time-inputs {
+			font-size: small;
+            width: 140px;
+            flex-shrink: 0;
+			margin-top: 4px;
+        }
+        .event-title {
+            margin: 0;
+            padding-top: 2px; /* Small adjustment for vertical alignment */
+        }
+
     </style>
 </body>
 </html>
